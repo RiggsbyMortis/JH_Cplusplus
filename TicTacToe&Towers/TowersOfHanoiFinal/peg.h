@@ -52,7 +52,6 @@ public:
 private:
 	//value returned when call Top() of empty stack
 	static const string ERROR;
-
 	static const string EMPTY;
 
 	//points to top data element on stack

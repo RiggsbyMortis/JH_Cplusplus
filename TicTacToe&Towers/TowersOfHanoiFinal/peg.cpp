@@ -62,6 +62,7 @@ bool Peg::isEmpty() const
 
 }
 
+//show the goods
 void Peg::Display() const
 {
 	Node* pNode = m_pHead;
@@ -81,11 +82,13 @@ void Peg::Display() const
 	}
 }
 
+//count the elements
 int Peg::Count() const
 {
 	Node* pNode = m_pHead;
 	int c_Total = 0;
 
+	//go through list and print all legal elements
 	while (pNode != NULL)
 	{
 		++c_Total;
@@ -95,13 +98,14 @@ int Peg::Count() const
 	return c_Total;
 }
 
+//read the top data of a peg
 string Peg::Top() const
 {
 	bool found = false;
 	string empty;
 	Node* pNode = m_pHead;
 
-	while (!found)
+	while (!found)	//while found is false, compare mData to the strings below and return true if found
 	{
 		if (pNode->m_Data == empty)
 		{
@@ -127,6 +131,7 @@ string Peg::Top() const
 	}
 }
 
+//add a new node to the peg
 void Peg::Add(const string& data)
 {
 	//create new node
@@ -154,8 +159,7 @@ void Peg::Add(const string& data)
 	}
 }
 
-
-
+//inital add sequence
 void Peg::startAdd(const string& data)
 {
 	Node* pNode = new Node(data);
@@ -175,7 +179,7 @@ void Peg::startAdd(const string& data)
 	}
 }
 
-
+//returns true if it successfully removes a disk/node
 bool Peg::Remove()
 {
 	//pointer to be removed
@@ -198,6 +202,7 @@ bool Peg::Remove()
 	return true;
 }
 
+//clear peg of all elements
 void Peg::Clear()
 {
 	while (m_pHead != NULL)

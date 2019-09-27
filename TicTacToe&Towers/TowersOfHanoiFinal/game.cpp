@@ -5,11 +5,13 @@
 
 using namespace std;
 
+//contants for the pegs
 const string Game::PEG1 = "Peg 1";
 const string Game::PEG2 = "Peg 2";
 const string Game::PEG3 = "Peg 3";
 string Game::DISKS[NUM_DISKS] = { "EH", "BEER", "CANADA", "FRIGGINOH" };
 
+//bring them to LIFE
 Peg* Game::m_Peg1 = new Peg;
 Peg* Game::m_Peg2 = new Peg;
 Peg* Game::m_Peg3 = new Peg;
@@ -24,7 +26,7 @@ Game::Game()
 //status of whether or not game is won
 bool Game::isWon() const
 {
-	//if all items are on Peg 3, in order, player wins
+	//if all items are on Peg 3, player wins
 	if (Game::m_Peg3->Peg::Contains(DISKS[0]) && Game::m_Peg3->Peg::Contains(DISKS[1]) && Game::m_Peg3->Peg::Contains(DISKS[2]) && Game::m_Peg3->Peg::Contains(DISKS[3]))
 	{
 		cout << "Congratulations! You win!" << endl;
@@ -33,14 +35,6 @@ bool Game::isWon() const
 	//otherwise, player hasnt won
 	return false;
 }
-
-
-
-//status of loss
-//bool Game::isLost(const Peg& withoutPlayer) const
-//{
-//
-//}
 
 bool Game::isPlaying() const
 {
@@ -56,10 +50,12 @@ bool Game::isPlaying() const
 
 void Game::Setup()
 {
+	//clear the pegs of any data
 	Game::m_Peg1->Peg::Clear();
 	Game::m_Peg2->Peg::Clear();
 	Game::m_Peg3->Peg::Clear();
 
+	//add the initial 4 disks to PEG1
 	for (int i = 0; i < NUM_DISKS; i++)
 	{
 		Game::m_Peg1->Peg::startAdd(DISKS[i]); 
@@ -68,8 +64,8 @@ void Game::Setup()
 
 //displays instructions
 void Game::DisplayInstructions() const
-
 {
+	//greet the player, explain the rules
 	cout << "\t\t\t +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=" << endl;
 	cout << "\t\t\t =BOG 'N' DOUG'S TOWERS OF HANOVER+" << endl;
 	cout << "\t\t\t +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=" << endl;
@@ -109,55 +105,56 @@ void Game::DisplayPegs() const
 //moves a disk from one peg to another
 void Game::MoveDisk(Peg& fromPeg, Peg& toPeg)
 {	
+	//ask which disk is being moved
 	string diskName;
 	cout << "Which disk would you like to move?";
 	cin >> diskName;
 	cout << endl << endl;
 	
+	//while the disk name is equal to the head node data on the 'From Peg'
 	while (diskName == fromPeg.m_pHead->m_Data)
 	{
 		if (toPeg.m_pHead == NULL)  // if the toPeg is empty
 		{
-			if (fromPeg.Contains(diskName) && fromPeg.Remove())
+			if (fromPeg.Contains(diskName) && fromPeg.Remove()) //check to see if the from peg has the disk and if it can be successfully removed
 			{
 				if (diskName == DISKS[0])
 				{
-					toPeg.Add(DISKS[0]);
+					toPeg.Add(DISKS[0]); //if the disk is EH
 				}
 				else if (diskName == DISKS[1])
 				{
-					toPeg.Add(DISKS[1]);
+					toPeg.Add(DISKS[1]); // if the disk is BEER
 				}
 				else if (diskName == DISKS[2])
 				{
-					toPeg.Add(DISKS[2]);
+					toPeg.Add(DISKS[2]); //if the disk is CANADA
 				}
 				else if (diskName == DISKS[3])
 				{
-					toPeg.Add(DISKS[3]);
+					toPeg.Add(DISKS[3]); //if the disk is FRIGGINOH
 				}
 				return;
 			}
-
 			else if (!fromPeg.Contains(diskName))
 			{
-				cout << "Not a valid choice." << endl;
+				cout << "Not a valid choice." << endl; //if the disk isn't on the from peg
 				return;
 			}
 
 			else
 			{
-				cout << "Not a valid choice." << endl;
+				cout << "Not a valid choice." << endl; //just in case
 				return;
 			}
 		}
 		else
 		{
+			//pass the size's of the diskname and the topeg head element into variables
 			int handDiskSize = diskName.size();
 			int toPegTopSize = toPeg.m_pHead->m_Data.size();
 			if (handDiskSize < toPegTopSize) // if the toPeg has top disk bigger than removed disk 
 			{
-				
 				for (int i = 0; i < NUM_DISKS; i++) //if the toPeg has stuff on it >
 				{
 					if (handDiskSize > toPegTopSize)
@@ -165,35 +162,32 @@ void Game::MoveDisk(Peg& fromPeg, Peg& toPeg)
 						cout << "Not a valid move." << endl;//> make sure the move is legal >
 						return;
 					}
-
 					else if (handDiskSize < toPegTopSize)
 					{
-						//Remove() returns true if succesful transfer
 						if (fromPeg.Contains(fromPeg.m_pHead->m_Data) && handDiskSize < toPegTopSize) //does the fromPeg have the chosen disk?
 						{
 							fromPeg.Remove();
 							if (diskName == DISKS[0])
 							{
-								toPeg.Add(DISKS[0]);				//j you still have to work out logic to place small disk on top of big one around here somewhere. love ya, rezz
+								toPeg.Add(DISKS[0]); //add EH
 							}
 							else if (diskName == DISKS[1])
 							{
-								toPeg.Add(DISKS[1]);
+								toPeg.Add(DISKS[1]);	//add BEER
 							}
 							else if (diskName == DISKS[2])  // these block says to add the removed disk to the toPeg 
 							{
-								toPeg.Add(DISKS[2]);
+								toPeg.Add(DISKS[2]);	//add CANADA
 							}
 							else if (diskName == DISKS[3])
 							{
-								toPeg.Add(DISKS[3]);
+								toPeg.Add(DISKS[3]);	//add FRIGGINOH
 							}
 							return;
 						}
-
 						else
 						{
-							cout << "Not a valid choice." << endl;
+							cout << "Not a valid choice." << endl; // if the diskName isn't legal
 						}
 					}
 					return;
@@ -201,7 +195,7 @@ void Game::MoveDisk(Peg& fromPeg, Peg& toPeg)
 			}
 			else
 			{
-				cout << "Not a valid move." << endl;
+				cout << "Not a valid move." << endl; //else the handDisk size is greater then to toPeg head element size
 				return;
 			}
 		}
@@ -211,17 +205,16 @@ void Game::MoveDisk(Peg& fromPeg, Peg& toPeg)
 
 void Game::Play()
 {
-	
+	//show them what I got
 	DisplayPegs();
 
+	//variables for peg choices
 	string pegChoice1;
 	string pegChoice2;
 
-	
-
 	do
 	{
-		
+		//ask the burning question
 		cout << "Which Peg would you like to take a disk from?";
 		cin >> pegChoice1;
 		cout << endl << endl;
@@ -229,8 +222,7 @@ void Game::Play()
 		cin >> pegChoice2;
 		cout << endl << endl;
 		
-
-		if (pegChoice1 == "PEG1" && pegChoice2 == "PEG2")
+		if (pegChoice1 == "PEG1" && pegChoice2 == "PEG2")		//if the choices are PEG1 and PEG2
 		{
 			if (m_Peg1->isEmpty())
 			{
@@ -251,8 +243,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-
-		else if (pegChoice1 == "PEG1" && pegChoice2 == "PEG3")
+		else if (pegChoice1 == "PEG1" && pegChoice2 == "PEG3")	//PEG1 and PEG3
 		{
 			if (m_Peg1->isEmpty())
 			{
@@ -273,8 +264,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-
-		else if (pegChoice1 == "PEG2" && pegChoice2 == "PEG1")
+		else if (pegChoice1 == "PEG2" && pegChoice2 == "PEG1")		//PEG2 and PEG1
 		{
 			if (m_Peg2->isEmpty())
 			{
@@ -295,8 +285,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-
-		else if (pegChoice1 == "PEG2" && pegChoice2 == "PEG3")
+		else if (pegChoice1 == "PEG2" && pegChoice2 == "PEG3")	//PEG2 and PEG3
 		{
 			if (m_Peg2->isEmpty())
 			{
@@ -317,8 +306,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-
-		else if (pegChoice1 == "PEG3" && pegChoice2 == "PEG1")
+		else if (pegChoice1 == "PEG3" && pegChoice2 == "PEG1")		//PEG3 and PEG1
 		{
 			if (m_Peg3->isEmpty())
 			{
@@ -339,8 +327,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-
-		else if (pegChoice1 == "PEG3" && pegChoice2 == "PEG2")
+		else if (pegChoice1 == "PEG3" && pegChoice2 == "PEG2")		//PEG3 and PEG2
 		{
 			if (m_Peg3->isEmpty())
 			{
@@ -361,13 +348,11 @@ void Game::Play()
 				cout << endl;
 			}		
 		}
-
 		else
 		{
 			system("CLS");
-			cout << "Not a valid move." << endl;
+			cout << "Not a valid move." << endl;		 //choices are not legal
 		}
 	} while (isPlaying() && !isWon());
-
 	return;
 }

@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
+	//set up the game, and print the opener for the player
 	Game towersOfHanoi;
 
 	towersOfHanoi.DisplayInstructions();
@@ -12,6 +13,7 @@ int main()
 
 	char choice;
 
+	//ask if they want to play, 
 	do
 	{
 		cout << "Hey there, guy! Care for a rousing round of Bob and Doug's Unofficial Towers of Hanover? (Y/N)";
