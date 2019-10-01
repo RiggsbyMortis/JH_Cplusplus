@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//all possible winning combos
 const int Board::WINNING_COMBOS[NUM_COMBOS][NUM_IN_COMBO] = { {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6} };
 
 Board::Board()
@@ -10,6 +11,7 @@ Board::Board()
 	Reset();
 }
 
+//is the board filled?
 bool Board::IsFull() const
 {
 	bool full = true;
@@ -27,11 +29,13 @@ bool Board::IsFull() const
 	return full;
 }
 
+//checks legality of player's moves
 bool Board::IsLegalMove(int move) const
 {
 	return (move >= 0 && move < NUM_SQUARES && m_Squares[move] == EMPTY);
 }
 
+//chcecks to see if a player has won yet
 bool Board::IsWinner(char piece) const
 {
 	bool winner = false;
@@ -58,6 +62,7 @@ bool Board::IsWinner(char piece) const
 	return winner;
 }
 
+//displays board
 void Board::Display() const
 {
 	cout << endl << "\t" << m_Squares[0] << " | " << m_Squares[1] << " | " << m_Squares[2] << endl << "\t" << "----------" << endl;
@@ -66,6 +71,7 @@ void Board::Display() const
 	cout << endl << endl;
 }
 
+//resets the board
 void Board::Reset()
 {
 	for (int i = 0; i < NUM_SQUARES; i++)
@@ -74,6 +80,7 @@ void Board::Reset()
 	}
 }
 
+//receives a move from a player, then sets the piece in that square
 void Board::ReceiveMove(char piece, int move)
 {
 	m_Squares[move] = piece;

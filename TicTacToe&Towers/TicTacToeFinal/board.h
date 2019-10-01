@@ -6,15 +6,15 @@ class Board
 {
 public:
 	Board();
-	bool IsFull() const;
-	bool IsLegalMove(int move) const;
-	bool IsWinner(char piece) const;
-	void Display() const;
-	void Reset();
-	void ReceiveMove(char piece, int move);
+	bool IsFull() const;		//is the board full?
+	bool IsLegalMove(int move) const;	//checks legality of player's moves
+	bool IsWinner(char piece) const;	//takes a piece as an arguement, checks to see if that piece has won
+	void Display() const;			//displays the board
+	void Reset();					//resets the game
+	void ReceiveMove(char piece, int move);	//receieves a piece and a move as arguements, uses them to receive a players move
 
-	static const int NUM_SQUARES = 9;
-	static const char EMPTY = ' ';
+	static const int NUM_SQUARES = 9;	//max num of suqares on a tictactoe grid
+	static const char EMPTY = ' ';		//value to be shown if square is empty
 
 private:
 	static const int NUM_COMBOS = 8;

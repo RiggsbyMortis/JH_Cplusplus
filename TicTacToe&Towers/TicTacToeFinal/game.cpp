@@ -7,6 +7,7 @@
 using namespace std;
 class Player;
 
+//constructor
 Game::Game():
 	m_Current(FIRST)
 {
@@ -16,11 +17,13 @@ Game::Game():
 	}
 }
 
+//destructor
 Game::~Game()
 {
 	ClearPlayers();
 }
 
+//returns if the game is playing
 bool Game::IsPlaying() const
 {
 	return ( !m_Board.IsFull() && !m_Board.IsWinner(m_pPlayers[FIRST]->GetPiece()) && !m_Board.IsWinner(m_pPlayers[SECOND]->GetPiece()) );

@@ -10,21 +10,25 @@ const char Player::PIECES[NUM_PIECES] = { 'X', 'O' };
 
 int Player::current = 0;
 
+//constructor
 Player::Player()
 {
 	m_Piece = PIECES[current];
 	current = (current + 1) % NUM_PIECES;
 }
 
+//destructor
 Player::~Player()
 {
 }
 
+//returns the players piece to use in the game
 char Player::GetPiece() const
 {
 	return m_Piece;
 }
 
+//same thing as above, but for the opponent
 char Player::GetOpponentPiece() const
 {
 	char piece;
@@ -41,6 +45,7 @@ char Player::GetOpponentPiece() const
 	return piece;
 }
 
+//asks the player where they want to place their piece
 void Player::MakeMove(Board& board) const
 {
 	int move;

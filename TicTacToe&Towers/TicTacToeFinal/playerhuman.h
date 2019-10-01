@@ -9,6 +9,6 @@ class Board;
 class PlayerHuman : public Player
 {
 public:
-	virtual void MakeMove(Board& board) const;
+	virtual void MakeMove(Board& board) const;	//accepts a board state as an arguement, makes the move 
 };
 #endif

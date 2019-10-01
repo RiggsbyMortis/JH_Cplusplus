@@ -5,10 +5,12 @@
 
 using namespace std;
 
+//Gets a players move
 void PlayerHuman::MakeMove(Board& board) const
 {
 	int move;
 
+	//loop to ask player the question
 	do
 	{
 		cout << "Player " << GetPiece();
@@ -16,5 +18,6 @@ void PlayerHuman::MakeMove(Board& board) const
 		cin >> move;
 	} while (!board.IsLegalMove(move));
 
+	//board receives the move
 	board.ReceiveMove(GetPiece(), move);
 }
