@@ -69,6 +69,7 @@ void Game::DisplayInstructions() const
 	cout << "\t\t\t +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=" << endl;
 	cout << "\t\t\t =BOG 'N' DOUG'S TOWERS OF HANOVER+" << endl;
 	cout << "\t\t\t +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=" << endl;
+	cout << "\t\t\t   Courtesy of RezzaRekt Studios!" << endl << endl;
 	system("pause");
 	system("CLS");
 	//displays instructions
