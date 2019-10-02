@@ -1,6 +1,8 @@
-﻿  game.cpp
+﻿  board.cpp
+  game.cpp
+  main.cpp
   player.cpp
   playercomputer.cpp
   playerhuman.cpp
   Generating Code...
-  TicTacToeFinal.vcxproj -> D:\source\TicTacToeFinal\Debug\TicTacToeFinal.exe
+  TicTacToeFinal.vcxproj -> C:\Users\Jarrett\Documents\GitHub\JH_Cplusplus\TicTacToe&Towers\TicTacToeFinal\Debug\TicTacToeFinal.exe

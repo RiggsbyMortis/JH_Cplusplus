@@ -57,11 +57,11 @@ void Game::SetPlayers()
 		char playerType;
 		cin >> playerType;
 
-		if (playerType == 'h')
+		if (playerType == 'h' || playerType == 'H')
 		{
 			m_pPlayers[i] = new PlayerHuman();
 		}
-		else if (playerType == 'c')
+		else if (playerType == 'c' || playerType == 'C')
 		{
 			m_pPlayers[i] = new PlayerComputer();
 		}

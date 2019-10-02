@@ -20,15 +20,15 @@ int main()
 	cout << "\t\t\t Courtesy of RezzaRekt Studios!" << endl << endl;
 	cout << "A classic game of TicTacToe with an A.I twist!" << endl;
 	cout << "Your goal is to dominate your opponent using the power of placement!" << endl;
-	cout << "Would you like to play a game?";
+	cout << "Would you like to play a game? (y/n)";
 	cin >> choice;
 
 	//dictates what to do after player inputs a choice
-	if (choice == 'y')
+	if (choice == 'y' || choice == 'Y')
 	{
 		wantsToPlay = true;
 	}
-	else if (choice == 'n')
+	else if (choice == 'n' || choice == 'N')
 	{
 		cout << "Well okay! Sorry to see you go before trying against our fabulous A.I!";
 		return 0;
