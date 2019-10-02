@@ -69,7 +69,7 @@ void Game::DisplayInstructions() const
 	cout << "\t\t\t +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=" << endl;
 	cout << "\t\t\t =BOG 'N' DOUG'S TOWERS OF HANOVER+" << endl;
 	cout << "\t\t\t +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=" << endl;
-	cout << "\t\t\t   Courtesy of RezzaRekt Studios!" << endl << endl;
+	cout << "\t\t   Courtesy of RezzaRekt Studios!" << endl << endl;
 	system("pause");
 	system("CLS");
 	//displays instructions
@@ -78,7 +78,7 @@ void Game::DisplayInstructions() const
 	cout << "Move all the items from Peg 1 to Peg 3." << endl << endl;
 	cout << "You may only move one disk at a time!" << endl << endl;
 	cout << "The game will ask 3 questions per move." << endl << endl;
-	cout << "First, it asks what peg you are taking the disk away from." << endl << endl;
+	cout << "First, it asks what peg you are taking the disk away from. (Enter PEG1 or PEG2 or PEG3)" << endl << endl;
 	cout << "Then, it will ask where you want the disk to go." << endl << endl;
 	cout << "Lastly, the game will ask the name of the disk you want to move." << endl << endl;
 	cout << "NOTE: PLEASE ENSURE YOUR CAPSLOCK IS ON, THE PROGRAM ONLY WORKS IF YOU YELL AT IT" << endl << endl;
@@ -223,7 +223,7 @@ void Game::Play()
 		cin >> pegChoice2;
 		cout << endl << endl;
 		
-		if (pegChoice1 == "PEG1" && pegChoice2 == "PEG2")		//if the choices are PEG1 and PEG2
+		if (pegChoice1 == "PEG1" && pegChoice2 == "PEG2" || pegChoice1 == "peg1" && pegChoice2 == "peg2")		//if the choices are PEG1 and PEG2
 		{
 			if (m_Peg1->isEmpty())
 			{
@@ -244,7 +244,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-		else if (pegChoice1 == "PEG1" && pegChoice2 == "PEG3")	//PEG1 and PEG3
+		else if (pegChoice1 == "PEG1" && pegChoice2 == "PEG3" || pegChoice1 == "peg1" && pegChoice2 == "peg3")	//PEG1 and PEG3
 		{
 			if (m_Peg1->isEmpty())
 			{
@@ -265,7 +265,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-		else if (pegChoice1 == "PEG2" && pegChoice2 == "PEG1")		//PEG2 and PEG1
+		else if (pegChoice1 == "PEG2" && pegChoice2 == "PEG1" || pegChoice1 == "peg2" && pegChoice2 == "peg1")		//PEG2 and PEG1
 		{
 			if (m_Peg2->isEmpty())
 			{
@@ -286,7 +286,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-		else if (pegChoice1 == "PEG2" && pegChoice2 == "PEG3")	//PEG2 and PEG3
+		else if (pegChoice1 == "PEG2" && pegChoice2 == "PEG3" || pegChoice1 == "peg2" && pegChoice2 == "peg3")	//PEG2 and PEG3
 		{
 			if (m_Peg2->isEmpty())
 			{
@@ -307,7 +307,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-		else if (pegChoice1 == "PEG3" && pegChoice2 == "PEG1")		//PEG3 and PEG1
+		else if (pegChoice1 == "PEG3" && pegChoice2 == "PEG1" || pegChoice1 == "peg3" && pegChoice2 == "peg1")		//PEG3 and PEG1
 		{
 			if (m_Peg3->isEmpty())
 			{
@@ -328,7 +328,7 @@ void Game::Play()
 				cout << endl;
 			}
 		}
-		else if (pegChoice1 == "PEG3" && pegChoice2 == "PEG2")		//PEG3 and PEG2
+		else if (pegChoice1 == "PEG3" && pegChoice2 == "PEG2" || pegChoice1 == "peg3" && pegChoice2 == "peg2")		//PEG3 and PEG2
 		{
 			if (m_Peg3->isEmpty())
 			{
@@ -351,7 +351,6 @@ void Game::Play()
 		}
 		else
 		{
-			system("CLS");
 			cout << "Not a valid move." << endl;		 //choices are not legal
 		}
 	} while (isPlaying() && !isWon());
