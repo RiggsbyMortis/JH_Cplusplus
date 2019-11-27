@@ -17,7 +17,7 @@ void PlayerComputer::MakeMove(Board& board) const
 		if (board.IsLegalMove(move))
 		{
 			board.ReceiveMove(GetPiece(), move);
-			found = board.IsWinner(GetPiece());		//this chunky monkey checks the legality and applies move if legal
+			found = board.IsWinner(GetPiece());		//this chunky monkey checks the legality of the move
 			board.ReceiveMove(board.EMPTY, move);
 		}
 
