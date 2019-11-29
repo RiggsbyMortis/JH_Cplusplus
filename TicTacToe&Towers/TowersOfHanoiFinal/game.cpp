@@ -67,9 +67,9 @@ void Game::DisplayInstructions() const
 {
 	//greet the player, explain the rules
 	cout << "\t\t\t +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=" << endl;
-	cout << "\t\t\t =BOG 'N' DOUG'S TOWERS OF HANOVER+" << endl;
+	cout << "\t\t\t =RIGGSBY AND CO TOWERS OF HANOVER+" << endl;
 	cout << "\t\t\t +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=" << endl;
-	cout << "\t\t   Courtesy of RezzaRekt Studios!" << endl << endl;
+	cout << "\t\t   Courtesy of Riggsby Creative!" << endl << endl;
 	system("pause");
 	system("CLS");
 	//displays instructions
@@ -79,9 +79,9 @@ void Game::DisplayInstructions() const
 	cout << "You may only move one disk at a time!" << endl << endl;
 	cout << "The game will ask 3 questions per move." << endl << endl;
 	cout << "First, it asks what peg you are taking the disk away from. (Enter PEG1 or PEG2 or PEG3)" << endl << endl;
-	cout << "Then, it will ask where you want the disk to go." << endl << endl;
-	cout << "Lastly, the game will ask the name of the disk you want to move." << endl << endl;
-	cout << "NOTE: PLEASE ENSURE YOUR CAPSLOCK IS ON, THE PROGRAM ONLY WORKS IF YOU YELL AT IT" << endl << endl;
+	cout << "Then, it will ask where you want the disk to go. (Enter PEG1, PEG2 or PEG3)" << endl << endl;
+	cout << "Lastly, the game will ask the name of the disk you want to move.(Enter EH, BEER, CANADA or FRIGGINOH" << endl << endl;
+	cout << "NOTE: PLEASE ENSURE YOUR CAPSLOCK IS ON, THE PROGRAM ONLY WORKS IF YOU YELL AT IT (she's a bit deaf don'tcha know>)" << endl << endl;
 	cout << "Good luck, Have fun!" << endl << endl;
 	system("pause");
 }
